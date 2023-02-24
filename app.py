@@ -168,16 +168,18 @@ def clear(update, context):
     bot.stopPoll()
 
 # def botMain():
+updater = Updater(token=BOT_TOKEN, use_context=True)
+dispatcher = updater.dispatcher
+
+dispatcher.add_handler(CommandHandler('hstart', start))
+dispatcher.add_handler(CommandHandler('stop', stop))
+
+updater.start_polling()
+
 def main():
     print('botMain')
 
-    updater = Updater(token=BOT_TOKEN, use_context=True)
-    dispatcher = updater.dispatcher
 
-    dispatcher.add_handler(CommandHandler('hstart', start))
-    dispatcher.add_handler(CommandHandler('stop', stop))
-
-    updater.start_polling()
     # updater.start_webhook(listen="0.0.0.0",
     #                       port=int(os.environ.get('PORT', 5000)),
     #                       url_path=BOT_TOKEN,
