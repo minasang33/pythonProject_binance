@@ -1,7 +1,7 @@
-# from flask import Flask, render_template  # Flask 라이브러리 선언
-# app = Flask(__name__)
+from flask import Flask, render_template  # Flask 라이브러리 선언
+app = Flask(__name__)
 
-import threading
+# import threading
 
 import pandas as pd
 pd.set_option('display.max_columns', None) ## 모든 열을 출력한다.
@@ -192,4 +192,4 @@ if __name__ =='__main__':
     # flask_thread.start()
 
     botMain()
-    # app.run()
+    app.run()
