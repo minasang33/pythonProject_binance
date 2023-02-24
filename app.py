@@ -38,7 +38,7 @@ CHAT_ID = '-1001874274156'
 
 bot = telegram.Bot(BOT_TOKEN)
 sched = BackgroundScheduler()
-
+bot.send_message(chat_id=MY_ID, text='안녕하세요!! \n 작업을 시작하고플땐 /hstart \n 작업을 중지하고플땐 /stop \n 메세지를 전송해주세요.😄')
 # pd.set_option('display.float_format', lambda x: '%.1f' %x)
 # df = pyupbit.get_ohlcv("KRW-BTC")
 # df['close'].ewm(span=9, adjust=False).mean()
@@ -168,22 +168,22 @@ def clear(update, context):
     bot.stopPoll()
 
 # def botMain():
-print('botMain')
-bot.send_message(chat_id=MY_ID, text='안녕하세요!! \n 작업을 시작하고플땐 /hstart \n 작업을 중지하고플땐 /stop \n 메세지를 전송해주세요.😄')
+def main():
+    print('botMain')
 
-updater = Updater(token=BOT_TOKEN, use_context=True)
-dispatcher = updater.dispatcher
+    updater = Updater(token=BOT_TOKEN, use_context=True)
+    dispatcher = updater.dispatcher
 
-dispatcher.add_handler(CommandHandler('hstart', start))
-dispatcher.add_handler(CommandHandler('stop', stop))
+    dispatcher.add_handler(CommandHandler('hstart', start))
+    dispatcher.add_handler(CommandHandler('stop', stop))
 
-updater.start_polling()
-# updater.start_webhook(listen="0.0.0.0",
-#                       port=int(os.environ.get('PORT', 5000)),
-#                       url_path=BOT_TOKEN,
-#                       webhook_url=+ BOT_TOKEN
-#                       )
-# updater.idle()
+    updater.start_polling()
+    # updater.start_webhook(listen="0.0.0.0",
+    #                       port=int(os.environ.get('PORT', 5000)),
+    #                       url_path=BOT_TOKEN,
+    #                       webhook_url=+ BOT_TOKEN
+    #                       )
+    # updater.idle()
 
 # @app.route('/')
 # def index():
@@ -198,7 +198,8 @@ updater.start_polling()
 #     def run(self) -> None:
 #         botMain()
 
-# if __name__ =='__main__':
+if __name__ =='__main__':
+    main()
 #     # flask_thread = FlaskThread()
 #     # flask_thread.start()
 #
