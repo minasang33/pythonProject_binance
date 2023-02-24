@@ -176,7 +176,7 @@ def index():
 
     updater.start_polling()
     updater.idle()
-    # return render_template('index.html')
+    return render_template('index.html')
 
 if __name__ =='__main__':
     app.run(port='8080')
