@@ -1,6 +1,8 @@
 from flask import Flask, render_template  # Flask 라이브러리 선언
 app = Flask(__name__)
 
+import threading
+
 import pandas as pd
 pd.set_option('display.max_columns', None) ## 모든 열을 출력한다.
 
@@ -158,13 +160,7 @@ def stop(update, context):
 
 def clear(update, context):
     bot.stopPoll()
-
-@app.route('/')
-def index():
-    print('main')
-    return render_template('index.html')
-
-if __name__ =='__main__':
+def botMain():
     bot.send_message(chat_id=MY_ID, text='안녕하세요!! \n 작업을 시작하고플땐 /hstart \n 작업을 중지하고플땐 /stop \n 메세지를 전송해주세요.😄')
 
     updater = Updater(token=BOT_TOKEN, use_context=True)
@@ -179,4 +175,21 @@ if __name__ =='__main__':
     updater.start_polling()
     updater.idle()
 
-    app.run()
+# @app.route('/')
+# def index():
+#     print('main')
+#     return render_template('index.html')
+
+class FlaskThread(threading.Thread):
+    def run(self) -> None:
+        app.run(port='8080')
+class TelegramThread(threading.Thread):
+    def run(self) -> None:
+        botMain()
+
+if __name__ =='__main__':
+    flask_thread = FlaskThread()
+    flask_thread.start()
+
+    botMain()
+    # app.run()
