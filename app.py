@@ -152,7 +152,7 @@ def start(update, context):
 
 def stop(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text="작업을 중지합니다.\n ✊ scheduler stop!")
-    sched.remove_job(job_id='send')
+    # sched.remove_job(job_id='send')
     sched.remove_all_jobs()
 
 
