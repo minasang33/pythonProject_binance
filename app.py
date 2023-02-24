@@ -1,4 +1,4 @@
-import os
+# import os
 
 # from flask import Flask, render_template  # Flask 라이브러리 선언
 # app = Flask(__name__)
@@ -145,6 +145,7 @@ def send_links():
 def start(update, context):
     print('====scheduler start====')
     print(update.effective_chat.id)
+    global sched
 
     context.bot.send_message(chat_id=update.effective_chat.id, text="작업을 시작합니다.\n 👉  scheduler start!")
 
@@ -156,12 +157,14 @@ def start(update, context):
 
 
 def stop(update, context):
+    global sched
     context.bot.send_message(chat_id=update.effective_chat.id, text="작업을 중지합니다.\n ✊ scheduler stop!")
     # sched.remove_job(job_id='send')
     sched.remove_all_jobs()
 
 
 def clear(update, context):
+    global bot
     bot.stopPoll()
 
 # def botMain():
