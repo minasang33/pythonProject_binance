@@ -179,7 +179,7 @@ def botMain():
 @app.route('/')
 def index():
     print('main')
-    bot.send_message(chat_id=MY_ID, text='안녕하세요!! \n 작업을 시작하고플땐 /hstart \n 작업을 중지하고플땐 /stop \n 메세지를 전송해주세요.😄')
+    # bot.send_message(chat_id=MY_ID, text='안녕하세요!! \n 작업을 시작하고플땐 /hstart \n 작업을 중지하고플땐 /stop \n 메세지를 전송해주세요.😄')
     return render_template('index.html')
 
 class FlaskThread(threading.Thread):
