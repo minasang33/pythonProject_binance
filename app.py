@@ -174,13 +174,13 @@ dispatcher = updater.dispatcher
 dispatcher.add_handler(CommandHandler('hstart', start))
 dispatcher.add_handler(CommandHandler('stop', stop))
 
-# updater.start_polling()
-updater.start_webhook(listen="0.0.0.0",
-                      port=int(os.environ.get('PORT', 5000)),
-                      url_path=BOT_TOKEN,
-                      webhook_url=+ BOT_TOKEN
-                      )
-updater.idle()
+updater.start_polling()
+# updater.start_webhook(listen="0.0.0.0",
+#                       port=int(os.environ.get('PORT', 5000)),
+#                       url_path=BOT_TOKEN,
+#                       webhook_url=+ BOT_TOKEN
+#                       )
+# updater.idle()
 
 # @app.route('/')
 # def index():
