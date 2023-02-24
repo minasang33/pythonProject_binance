@@ -167,18 +167,18 @@ def index():
     return render_template('index.html')
 
 if __name__ =='__main__':
-    bot.send_message(chat_id=MY_ID, text='안녕하세요!! \n 작업을 시작하고플땐 /hstart \n 작업을 중지하고플땐 /stop \n 메세지를 전송해주세요.😄')
-
-    updater = Updater(token=BOT_TOKEN, use_context=True)
-    dispatcher = updater.dispatcher
-
-    start_handler = CommandHandler('hstart', start)
-    stop_handler = CommandHandler('stop', stop)
-
-    dispatcher.add_handler(start_handler)
-    dispatcher.add_handler(stop_handler)
-
-    updater.start_polling()
-    updater.idle()
+    # bot.send_message(chat_id=MY_ID, text='안녕하세요!! \n 작업을 시작하고플땐 /hstart \n 작업을 중지하고플땐 /stop \n 메세지를 전송해주세요.😄')
+    #
+    # updater = Updater(token=BOT_TOKEN, use_context=True)
+    # dispatcher = updater.dispatcher
+    #
+    # start_handler = CommandHandler('hstart', start)
+    # stop_handler = CommandHandler('stop', stop)
+    #
+    # dispatcher.add_handler(start_handler)
+    # dispatcher.add_handler(stop_handler)
+    #
+    # updater.start_polling()
+    # updater.idle()
 
     app.run()
