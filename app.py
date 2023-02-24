@@ -1,7 +1,7 @@
 # import os
 
-# from flask import Flask, render_template  # Flask 라이브러리 선언
-# app = Flask(__name__)
+from flask import Flask, render_template  # Flask 라이브러리 선언
+app = Flask(__name__)
 
 # import threading
 
