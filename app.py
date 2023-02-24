@@ -182,7 +182,7 @@ def botMain():
 
 class FlaskThread(threading.Thread):
     def run(self) -> None:
-        app.run(port='8080')
+        app.run()
 class TelegramThread(threading.Thread):
     def run(self) -> None:
         botMain()
