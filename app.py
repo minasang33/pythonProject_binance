@@ -184,7 +184,7 @@ def botMain():
 
 class FlaskThread(threading.Thread):
     def run(self) -> None:
-        app.run(debug=True)
+        app.run(threaded=True)
 class TelegramThread(threading.Thread):
     def run(self) -> None:
         botMain()
