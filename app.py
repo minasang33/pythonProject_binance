@@ -162,6 +162,9 @@ def clear(update, context):
 @app.route('/')
 def index():
     print('main')
+    return render_template('index.html')
+
+if __name__ =='__main__':
     bot.send_message(chat_id=MY_ID, text='안녕하세요!! \n 작업을 시작하고플땐 /hstart \n 작업을 중지하고플땐 /stop \n 메세지를 전송해주세요.😄')
 
     updater = Updater(token=BOT_TOKEN, use_context=True)
@@ -176,7 +179,4 @@ def index():
     updater.start_polling()
     updater.idle()
 
-    return render_template('index.html')
-
-if __name__ =='__main__':
     app.run()
