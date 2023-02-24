@@ -1,5 +1,7 @@
-from flask import Flask, render_template  # Flask 라이브러리 선언
-app = Flask(__name__)
+import os
+
+# from flask import Flask, render_template  # Flask 라이브러리 선언
+# app = Flask(__name__)
 
 # import threading
 
@@ -162,24 +164,29 @@ def stop(update, context):
 def clear(update, context):
     bot.stopPoll()
 
-def botMain():
-    print('botMain')
-    bot.send_message(chat_id=MY_ID, text='안녕하세요!! \n 작업을 시작하고플땐 /hstart \n 작업을 중지하고플땐 /stop \n 메세지를 전송해주세요.😄')
+# def botMain():
+print('botMain')
+bot.send_message(chat_id=MY_ID, text='안녕하세요!! \n 작업을 시작하고플땐 /hstart \n 작업을 중지하고플땐 /stop \n 메세지를 전송해주세요.😄')
 
-    updater = Updater(token=BOT_TOKEN, use_context=True)
-    dispatcher = updater.dispatcher
+updater = Updater(token=BOT_TOKEN, use_context=True)
+dispatcher = updater.dispatcher
 
-    dispatcher.add_handler(CommandHandler('hstart', start))
-    dispatcher.add_handler(CommandHandler('stop', stop))
+dispatcher.add_handler(CommandHandler('hstart', start))
+dispatcher.add_handler(CommandHandler('stop', stop))
 
-    updater.start_polling()
-    updater.idle()
+# updater.start_polling()
+updater.start_webhook(listen="0.0.0.0",
+                      port=int(os.environ.get('PORT', 5000)),
+                      url_path=BOT_TOKEN,
+                      webhook_url=+ BOT_TOKEN
+                      )
+updater.idle()
 
-@app.route('/')
-def index():
-    print('main')
-    # bot.send_message(chat_id=MY_ID, text='안녕하세요!! \n 작업을 시작하고플땐 /hstart \n 작업을 중지하고플땐 /stop \n 메세지를 전송해주세요.😄')
-    return render_template('index.html')
+# @app.route('/')
+# def index():
+#     print('main')
+#     # bot.send_message(chat_id=MY_ID, text='안녕하세요!! \n 작업을 시작하고플땐 /hstart \n 작업을 중지하고플땐 /stop \n 메세지를 전송해주세요.😄')
+#     return render_template('index.html')
 
 # class FlaskThread(threading.Thread):
 #     def run(self) -> None:
@@ -188,9 +195,9 @@ def index():
 #     def run(self) -> None:
 #         botMain()
 
-if __name__ =='__main__':
-    # flask_thread = FlaskThread()
-    # flask_thread.start()
-
-    botMain()
-    app.run()
+# if __name__ =='__main__':
+#     # flask_thread = FlaskThread()
+#     # flask_thread.start()
+#
+#     botMain()
+#     app.run()
