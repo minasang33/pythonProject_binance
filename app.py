@@ -24,14 +24,15 @@ for i, ticker in enumerate(tickers):
         USDT_ticker.append(ticker)
         count += 1
 
-BOT_TOKEN = '5955241741:AAG3R-Pp7qi6IccU7YXirfJYIe0oE__E4MU'
+# BOT_TOKEN = '5955241741:AAG3R-Pp7qi6IccU7YXirfJYIe0oE__E4MU'
+# MY_ID ='538115311'
+# CHAT_ID = '-1001778308558'
 
-# BOT_TOKEN = '6056998714:AAHa9RfCHGMf68cqD9hNSvO1VkQS0gp6lhY'
-# MY_ID = '5892267509'
-# CHAT_ID = '-1001874274156'
+BOT_TOKEN = '6056998714:AAHa9RfCHGMf68cqD9hNSvO1VkQS0gp6lhY'
+MY_ID = '5892267509'
+CHAT_ID = '-1001874274156'
 
-MY_ID ='538115311'
-CHAT_ID = '-1001778308558'
+
 
 bot = telegram.Bot(BOT_TOKEN)
 sched = BackgroundScheduler()
