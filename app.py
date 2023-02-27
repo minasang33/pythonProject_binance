@@ -153,7 +153,7 @@ def send_links():
         sendMessage(bot, '60분봉=============')
         sendMessage(bot, "상: "+str(one_ticker[0]))
     if len(one_ticker[1]) > 0:
-        if len(one_ticker[1]) == 0:
+        if len(one_ticker[0]) == 0:
             sendMessage(bot, '60분봉=============')
         sendMessage(bot, "하: "+str(one_ticker[1]))
 
