@@ -129,21 +129,33 @@ def send_links():
 
     five_ticker = getJS('5m')
     print("5분봉:", five_ticker)
-    sendMessage(bot, '5분봉=============')
-    sendMessage(bot, "상: "+str(five_ticker[0]))
-    sendMessage(bot, "하: "+str(five_ticker[1]))
+    if len(five_ticker[0]) > 0:
+        sendMessage(bot, '5분봉=============')
+        sendMessage(bot, "상: "+str(five_ticker[0]))
+    if len(five_ticker[1]) > 0:
+        if len(five_ticker[0]) == 0:
+            sendMessage(bot, '5분봉=============')
+        sendMessage(bot, "하: "+str(five_ticker[1]))
 
     fifteen_ticker = getJS('15m')
     print("15분봉:", fifteen_ticker)
-    sendMessage(bot, '15분봉=============')
-    sendMessage(bot, "상: "+str(fifteen_ticker[0]))
-    sendMessage(bot, "하: "+str(fifteen_ticker[1]))
+    if len(fifteen_ticker[0]) > 0:
+        sendMessage(bot, '15분봉=============')
+        sendMessage(bot, "상: "+str(fifteen_ticker[0]))
+    if len(fifteen_ticker[1]) > 0:
+        if len(fifteen_ticker[0]) == 0:
+            sendMessage(bot, '15분봉=============')
+        sendMessage(bot, "하: "+str(fifteen_ticker[1]))
 
     one_ticker = getJS('1h')
     print("60분봉:", one_ticker)
-    sendMessage(bot, '60분봉=============')
-    sendMessage(bot, "상: "+str(one_ticker[0]))
-    sendMessage(bot, "하: "+str(one_ticker[1]))
+    if len(one_ticker[0]) > 0:
+        sendMessage(bot, '60분봉=============')
+        sendMessage(bot, "상: "+str(one_ticker[0]))
+    if len(one_ticker[1]) > 0:
+        if len(one_ticker[1]) == 0:
+            sendMessage(bot, '60분봉=============')
+        sendMessage(bot, "하: "+str(one_ticker[1]))
 
     print(datetime.now())
 
